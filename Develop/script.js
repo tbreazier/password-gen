@@ -25,9 +25,9 @@ function selectInput(pwLength) {
     var nums = confirm ("Would you like to use numbers? OK=YES, CANCEL=NO");
     var symbols = confirm ("Would you like to use special characters? (OK=YES, Cancel=NO");
 
-    while (!uppers && !lowers && !numbers && !symbols) {
+    while (!upper && !lowers && !numbers && !symbols) {
         alert("You must select at least one character type!");
-        uppers = confirm("Would you like to use uppercase letters?");
+        upper = confirm("Would you like to use uppercase letters?");
         lowers = confirm("Would you like to use lowercase letters?");
         numbers = confirm("Would you like to use numbers?");
         symbols = confirm("Would you like to use special characters?");      
@@ -47,11 +47,25 @@ var pwCriteria = {
 function createPassword(pwCriteria) {
     var pwArray = [];
     while (pwArray.length < pwCriteria.pwLength) {
-        if (pwLength.lower){
-            pwArray.push(lowerCase[genRanom(lowerCase)]);
+        if (pwCriteria.lower){
+            pwArray.push(lowerCase[randomize(lowerCase)]);
         }
-        
+        if (pwCriteria.upper){
+            pwArray.push(upperCase[randomize(upperCase)]);
+        }
+        if (pwCriteria.nums){
+            pwArray.push(numbers[randomize(numbers)]);
+        }
+        if (pwCriteria.symbols){
+            pwArray.push(special[randomize(special)]);
+        }     
     }
+    var pwString = pwArray.join("");
+    writePassword(pwString);
+}
+
+function randomize(charSet) {
+    return Math.floor(Math.random() * charSet.length);
 }
 
 // Get references to the #generate element
