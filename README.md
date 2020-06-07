@@ -4,4 +4,4 @@
 
 [link to github repo](https://github.com/tbreazier/password-gen)
 
-![demo of site](./pwd-generator-demo.gif)
+![demo of site](./assets/pwd-generator-demo.gif)
