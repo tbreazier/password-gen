@@ -1,6 +1,4 @@
-# Password Generator Starter Code
-
-Javascript Password Generator
+# Javascript Password Generator
 
 [link to site](https://tbreazier.github.io/password-gen/)
 
